@@ -5,6 +5,7 @@ import { Router, Route, browserHistory } from 'react-router'
 import {
   App,
   Card,
+  CardDemo,
   Game,
   Home,
   About,
@@ -16,7 +17,7 @@ import {
   Success,
   User,
   ViewResults,
-  Card2
+  Note
 } from './components'
 import './styles/screen.sass'
 
@@ -35,7 +36,8 @@ const router =
       <Route path='/sign-in' component={SignIn} />
       <Route path='/success' component={Success} />
       <Route path='/view-results' component={ViewResults} />
-      <Route path='/card2' component={Card2} />
+      <Route path='/card2' component={CardDemo} />
+      <Route path='/note' component={Note} />
     </Route>
   </Router>
 

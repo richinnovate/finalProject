@@ -1,0 +1,114 @@
+$back-color: #CCC;
+$face-color: #333;
+$back-bg-color: #33C;
+$face-bg-color: #3C3;
+
+$card-size: 200px;
+
+.sf-card {
+  box-sizing: border-box;
+  position: relative;
+  width: $card-size;
+  height: $card-size;
+  padding: 2%;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.sf-wrap {
+  background-repeat: no-repeat;
+  position: absolute;
+  max-width: $card-size * 1.2;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  margin-left: ($card-size / 2) * -1;
+  top: 0;
+  perspective: $card-size * 2;
+  cursor: pointer;
+}
+
+.sf-mdl-left,
+.sf-mdl-right,
+.sf-mdl-left-full,
+.sf-mdl-right-full {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transition: all .5s;
+  overflow: hidden;
+}
+
+.sf-mdl-right,
+.sf-mdl-right-full {
+  left: auto;
+  right: 0;
+}
+
+.sf-mdl-left-full,
+.sf-mdl-right-full {
+  background-color: $face-bg-color;
+  z-index: 9;
+  color: $face-color;
+}
+
+.sf-mdl-left,
+.sf-mdl-right {
+  color: $back-color;
+  background-color: $back-bg-color;
+  z-index: 10;
+}
+
+.sf-wrap > .sf-mdl-right,
+.sf-wrap > .sf-mdl-left-full {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform-origin: 0 0;
+  transform: rotateY(0deg);
+}
+
+.sf-wrap:hover > .sf-mdl-right {
+  transform: rotateY(-45deg);
+  background-color: darken($back-bg-color, 10%);
+}
+
+.sf-wrap > .sf-mdl-left-full {
+  transform-origin: 100% 0;
+  transform: rotateY(180deg);
+}
+
+.sf-wrap.active > .sf-mdl-right,
+.sf-wrap:hover.active > .sf-mdl-right {
+  transform: rotateY(-180deg);
+}
+
+.sf-wrap.active > .sf-mdl-left-full {
+  transform: rotateY(0deg);
+}
+
+.active .sf-mdl-left-full,
+.active .sf-mdl-right-full {
+  z-index: 11;
+}
+
+.sf-wrap .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sf-wrap div.sf-mdl-right .content,
+.sf-wrap div.sf-mdl-right-full .content,
+.sf-mdl-right .content,
+.sf-mdl-right-full .content {
+  left: auto;
+  right: 0;
+}
