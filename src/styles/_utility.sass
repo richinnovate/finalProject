@@ -1,0 +1,11 @@
+$primaryFont: 'Domine', serif
+$secondaryFont: 'Open Sans', Helvetica, Arial, sans-serif
+$titleFont: 'Kaushan Script' , cursive
+
+=font-smoothing($value: on)
+  @if $value == on
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+  @else
+    -moz-osx-font-smoothing: auto
+    -webkit-font-smoothing: subpixel-antialiased
