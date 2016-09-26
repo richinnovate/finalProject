@@ -30,6 +30,7 @@
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "normalize.css": "^4.2.0",
     "react": "^15.3.2",
     "react-burger-menu": "^1.10.4",

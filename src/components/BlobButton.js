@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 class BlobButton extends React.Component {
 
   static propTypes = {
-    children: React.PropTypes.element.isRequired,
+    children: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]),
     linkTo: React.PropTypes.string,
     onClick: React.PropTypes.func
   }
