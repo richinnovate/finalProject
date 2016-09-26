@@ -1,31 +1,33 @@
-$back-color: #CCC;
-$face-color: #333;
-$back-bg-color: #33C;
-$face-bg-color: #3C3;
+// Change these colors!
+$back-color: #b0a9a9;
+$face-color: #252222;
+$back-bg-color: #8e17cf;
+$face-bg-color: #71f29f;
 
-$card-size: 200px;
+$card-width: 200px;
+$card-height: 200px; // Feel free to change this to adjust the aspect ratio from square
+$card-border: ($card-width * 0.1);
 
 .sf-card {
-  box-sizing: border-box;
   position: relative;
-  width: $card-size;
-  height: $card-size;
-  padding: 2%;
+  box-sizing: border-box;
+  width: $card-width;
+  height: $card-height;
   -webkit-touch-callout: none;
   user-select: none;
 }
 
 .sf-wrap {
-  background-repeat: no-repeat;
   position: absolute;
-  max-width: $card-size * 1.2;
+  top: 0;
+  left: 50%;
+  max-width: $card-width * 1.2;
   width: 100%;
   height: 100%;
-  left: 50%;
-  margin-left: ($card-size / 2) * -1;
-  top: 0;
-  perspective: $card-size * 2;
+  margin-left: ($card-width / 2) * -1;
   cursor: pointer;
+  background-repeat: no-repeat;
+  perspective: $card-width * 2;
 }
 
 .sf-mdl-left,
@@ -33,32 +35,32 @@ $card-size: 200px;
 .sf-mdl-left-full,
 .sf-mdl-right-full {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 50%;
   height: 100%;
-  transition: all .5s;
+  transition: all 0.5s;
   overflow: hidden;
 }
 
 .sf-mdl-right,
 .sf-mdl-right-full {
-  left: auto;
   right: 0;
+  left: auto;
 }
 
 .sf-mdl-left-full,
 .sf-mdl-right-full {
-  background-color: $face-bg-color;
   z-index: 9;
   color: $face-color;
+  background-color: $face-bg-color;
 }
 
 .sf-mdl-left,
 .sf-mdl-right {
+  z-index: 10;
   color: $back-color;
   background-color: $back-bg-color;
-  z-index: 10;
 }
 
 .sf-wrap > .sf-mdl-right,
@@ -94,21 +96,37 @@ $card-size: 200px;
 }
 
 .sf-wrap .content {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 200%;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 
 .sf-wrap div.sf-mdl-right .content,
 .sf-wrap div.sf-mdl-right-full .content,
 .sf-mdl-right .content,
 .sf-mdl-right-full .content {
-  left: auto;
   right: 0;
+  left: auto;
+}
+
+.sf-wrap .content img {
+  width: $card-width - ($card-border * 2);
+  height: $card-height - ($card-border * 2);
+}
+
+.sf-wrap .content.back {
+  border: $card-border solid #fff;
+  width: $card-width - ($card-border * 2);
+  height: $card-height - ($card-border * 2);
+  transition: border-color 0.5s;
+}
+
+.sf-wrap:hover > .sf-mdl-right .content.back {
+  border: ($card-width * 0.1) solid darken(#fff, 10%);
 }
