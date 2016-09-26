@@ -26,13 +26,13 @@ class Note extends React.Component {
   render () {
     return (
       <div className='Note'>
-      <Textarea placeholder='Question'
-      label='question'
-      name='question' onChange={this.getQuestion} />
-      <Textarea placeholder='Answer'
-      label='answer'
-      name='answer' onChange={this.getAnswer} />
-      <Button children='Submit' onClick={this.submit}/>
+        <Textarea placeholder='Question'
+          label='question'
+          name='question' onChange={this.getQuestion} />
+        <Textarea placeholder='Answer'
+          label='answer'
+          name='answer' onChange={this.getAnswer} />
+        <Button children='Submit' onClick={this.submit}/>
       </div>
     )
   }
