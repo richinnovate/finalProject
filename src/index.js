@@ -17,7 +17,8 @@ import {
   Success,
   User,
   ViewResults,
-  Note
+  Note,
+  NewCardSet
 } from './components'
 import './styles/screen.sass'
 
@@ -37,7 +38,8 @@ const router =
       <Route path='/success' component={Success} />
       <Route path='/view-results' component={ViewResults} />
       <Route path='/card2' component={CardDemo} />
-      <Route path='/note' component={Note} />
+      <Route path='/note' component={NewCardSet} />
+      <Route path='/note/:cardSet' component={Note} />
     </Route>
   </Router>
 

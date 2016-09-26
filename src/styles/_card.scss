@@ -81,6 +81,10 @@ $card-border: ($card-width * 0.1);
   transform: rotateY(180deg);
 }
 
+.sf-wrap.active, .sf-wrap:hover {
+  z-index: 9000;
+}
+
 .sf-wrap.active > .sf-mdl-right,
 .sf-wrap:hover.active > .sf-mdl-right {
   transform: rotateY(-180deg);

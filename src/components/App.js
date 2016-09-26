@@ -15,7 +15,7 @@ class App extends React.Component {
         <BlobButton>Play Game</BlobButton>
         <BlobButton>Sign In</BlobButton>
         <BlobButton>How It Works</BlobButton>
-        <BlobButton>Create New Team</BlobButton>
+        <Link to='/create-team'><BlobButton>Create New Team</BlobButton></Link>
         <BlobButton>Home</BlobButton>
       </Menu>
       <div className='app-main'>
