@@ -14,12 +14,12 @@ class SignIn extends Component {
             </div>
             <div className='group'>
               <input type='password' /><span className='highlight' /><span className='bar' />
-              <label>Password</label>
+              <label>Team Password</label>
             </div>
-            <button type='button' className='button buttonBlue'>
+            <Link to='/note'><button type='button' className='button buttonBlue'>
               Login
               <div className='ripples buttonRipples'><span className='ripplesCircle' /></div>
-            </button>
+            </button></Link>
           </form>
         </main>
         <footer>

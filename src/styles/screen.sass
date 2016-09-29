@@ -5,18 +5,22 @@
 @import 'card'
 
 body
-  background: #ffc300
+  background: #eef442
   color: white
   font-family: $primaryFont
+  text-shadow: 2px 2px grey
 
 header
-  padding: 1.5em 0
+  padding: 2.5em 0
   font-size: 3em
+  padding-left: 80px
 
 h1
   font-family: $titleFont
   text-align: center
   margin: 0
+  color: white
+  text-shadow: 1px 1px 2px black, 0 0 25px dark, 0 0 5px grey
 
 .card
   display: inline-block
@@ -36,8 +40,10 @@ h1
     color: transparent
 
   main
+    display: flex
     direction: row
     justify-content: space-around
+
 
   *, *:before, *:after
   box-sizing: border-box
@@ -75,7 +81,7 @@ input
 /* Label
 
 label
-  color: #999
+  color: white
   font-size: 18px
   font-weight: normal
   // position: absolute
@@ -257,27 +263,28 @@ main
   flex-wrap: wrap
   font-family: $primaryFont
   padding-top: 70px
+  font-size: 25px
 
 h2
   display: flex
   justify-content: center
 
 header
-  padding-top: 70px
-
+  padding-top: 90px
+  padding-left: 80px
 
 .CreateGame
   padding-right: 20px
-  padding-left: 10px
+  padding-left: 80px
   width: 25em
 
 .ManageAccount
-  padding-left: 20px
+  padding-left: 80px
   width: 25em
 
 .PlayGame
   width: 25em
-  padding-left: 70px
+  padding-left: 200px
 
 .Note
   font-family: $primaryFont

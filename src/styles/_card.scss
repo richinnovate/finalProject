@@ -52,8 +52,10 @@ $card-border: ($card-width * 0.1);
 .sf-mdl-left-full,
 .sf-mdl-right-full {
   z-index: 9;
-  color: $face-color;
+  color: white;
   background-color: $face-bg-color;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sf-mdl-left,
@@ -82,7 +84,7 @@ $card-border: ($card-width * 0.1);
 }
 
 .sf-wrap.active, .sf-wrap:hover {
-  z-index: 9000;
+  //z-index: 90;
 }
 
 .sf-wrap.active > .sf-mdl-right,

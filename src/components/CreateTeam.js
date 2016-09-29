@@ -28,10 +28,10 @@ class CreateTeam extends Component {
               <input type='text' /><span className='highlight' /><span className='bar' />
               <label>email address</label>
             </div>
-            <button type='button' className='button buttonBlue'>
-              Create Account
+            <Link to='/note'><button type='button' className='button buttonBlue'>
+              Create Team Account
               <div className='ripples buttonRipples'><span className='ripplesCircle' /></div>
-            </button>
+            </button></Link>
           </form>
         </main>
         <footer>

@@ -18,7 +18,8 @@ import {
   User,
   ViewResults,
   Note,
-  NewCardSet
+  NewCardSet,
+  Wallpaper
 } from './components'
 import './styles/screen.sass'
 
@@ -40,6 +41,7 @@ const router =
       <Route path='/card2' component={CardDemo} />
       <Route path='/note' component={NewCardSet} />
       <Route path='/note/:cardSet' component={Note} />
+      <Route path='/wallpaper' component={Wallpaper} />
     </Route>
   </Router>
 

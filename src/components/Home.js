@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
 import { BlobButton } from '.'
+import { Wallpaper } from '.'
 
 class Home extends Component {
   render () {
