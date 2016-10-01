@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 class BlobButton extends React.Component {
 
@@ -9,8 +9,17 @@ class BlobButton extends React.Component {
     onClick: React.PropTypes.func
   }
 
+  handleClick = (event) => {
+    if (this.props.onClick) {
+      this.props.onClick(event)
+    }
+    if (this.props.linkTo) {
+      browserHistory.push(this.props.linkTo)
+    }
+  }
+
   render () {
-    const button = <button className='blob-btn' onClick={this.props.onClick}>
+    return <button className='blob-btn' onClick={this.handleClick}>
       {this.props.children}
       <span className='blob-btn__inner'>
         <span className='blob-btn__blobs'>
@@ -21,12 +30,6 @@ class BlobButton extends React.Component {
         </span>
       </span>
     </button>
-
-    if (this.props.linkTo) {
-      return <Link to={this.props.linkTo}>{button}</Link>
-    } else {
-      return button
-    }
   }
 }
 

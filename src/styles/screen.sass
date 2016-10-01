@@ -4,6 +4,26 @@
 @import 'blob-buttons'
 @import 'card'
 
+html
+  height: 100vh
+  width: 100vw
+
+body,
+html
+  min-width: 100vw
+  min-height: 100vh
+  margin: 0
+  padding: 0
+
+canvas
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: -9000
+  opacity: 0.25
+
 body
   background: #eef442
   color: white
@@ -11,7 +31,7 @@ body
   text-shadow: 2px 2px grey
 
 header
-  padding: 2.5em 0
+  padding: 2.5em 0 0
   font-size: 3em
   padding-left: 80px
 
@@ -38,12 +58,6 @@ h1
   &.down
     background-color: orange
     color: transparent
-
-  main
-    display: flex
-    direction: row
-    justify-content: space-around
-
 
   *, *:before, *:after
   box-sizing: border-box
@@ -259,19 +273,28 @@ input:focus ~ .highlight
 main
   display: flex
   flex-direction: row
-  align-items: baseline
+  justify-content: center
   flex-wrap: wrap
   font-family: $primaryFont
-  padding-top: 70px
   font-size: 25px
+  padding: 25px
+
+  img
+    width: 33vw
+    height: 33vw
+    margin: 25px
 
 h2
   display: flex
   justify-content: center
 
 header
-  padding-top: 90px
+  padding-top: 40px
+  padding-right: 100px
+
+.About
   padding-left: 80px
+  padding-right: 60px
 
 .CreateGame
   padding-right: 20px
@@ -284,7 +307,7 @@ header
 
 .PlayGame
   width: 25em
-  padding-left: 200px
+  padding-left: 80px
 
 .Note
   font-family: $primaryFont
