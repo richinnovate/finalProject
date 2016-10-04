@@ -1,36 +1,53 @@
 import React from 'react'
+import cx from 'classnames'
 
 class Card extends React.Component {
-  handleClick = () => {
-    this.props.flipCard(this.props.index)
+
+  static propTypes = {
+    flipCard: React.PropTypes.func,
+    index: React.PropTypes.number,
+    up: React.PropTypes.bool,
+    value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element])
+  }
+
+  _handleClick = (event) => {
+    if (this.props.flipCard) {
+      this.props.flipCard(this.props.index)
+    }
   }
 
   render () {
-    const direction = this.props.up ? 'up' : 'down'
-
-    if (this.props.value.match(/^http/)) {
-      // It's a URL, render images
-      switch (direction) {
-        case 'up':
-          return <img src={this.props.value} className={`card ${direction}`} />
-          break
-        case 'down':
-          return <img src='' onClick={this.handleClick} className={`card ${direction}`} />
-          break
-        default: return <img src='' onClick={this.handleClick} className={`card ${direction}`} />
+    let value
+    if (typeof this.props.value === 'string') {
+      if (this.props.value.match(/^http/)) {
+        value = <img src={this.props.value} />
+      } else {
+        value = <span className={cx({long: this.props.value.length > 42})}>{this.props.value}</span>
       }
     } else {
-      // otherwise, render the text
-      switch (direction) {
-        case 'up':
-          return <span className={`card ${direction}`}>{this.props.value}</span>
-          break
-        case 'down':
-          return <span onClick={this.handleClick} className={`card ${direction}`}>{this.props.value}</span>
-          break
-        default: return <span onClick={this.handleClick} className={`card ${direction}`}>{this.props.value}</span>
-      }
+      value = this.props.value
     }
+
+    return <div className='sf-card' onClick={this._handleClick}>
+      <div className={cx('sf-wrap', { active: this.props.up })}>
+        <div className='sf-mdl-left'>
+          <div className='content back' />
+        </div>
+        <div className='sf-mdl-right'>
+          <div className='content back' />
+        </div>
+        <div className='sf-mdl-left-full'>
+          <div className='content face'>
+            {value}
+          </div>
+        </div>
+        <div className='sf-mdl-right-full'>
+          <div className='content face'>
+            {value}
+          </div>
+        </div>
+      </div>
+    </div>
   }
 }
 

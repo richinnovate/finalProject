@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { PropTypes as T } from 'react'
 import '../styles/screen.sass'
-import Card from './Card2'
+import Card from './Card'
+import BlobButton from './BlobButton'
+
 const SHOW_CARD = 2000
 
 import API from '../api'
 
-import cardData from '../cardData.json'
-
 class Game extends React.Component {
+
+  static propTypes = {
+    params: T.object
+  }
 
   constructor (props) {
     super(props)
@@ -15,11 +19,16 @@ class Game extends React.Component {
       cards: [],
       matched: [],
       turned: [],
-      win: false
+      win: false,
+      playerName: null
     }
   }
 
   componentDidMount () {
+    this.setState({
+      playerName: window.sessionStorage.getItem('player')
+    }, () => this.createGame())
+
     window.fetch(`${API.root}/cards`, {
       headers: {
         'Authorization': `Bearer ${API.token}`,
@@ -41,6 +50,44 @@ class Game extends React.Component {
         cards: this.shuffle(cardSet)
       })
     })
+  }
+
+  createGame () {
+    if (!this.state.gameId && this.state.playerName) {
+      window.fetch(`${API.root}/games`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${API.token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          playerName: this.state.playerName,
+          cardSet: this.props.params.cardSet,
+          totalCards: this.state.cards.length,
+          progress: 0
+        })
+      }).then(res => res.json()).then((data) => {
+        this.setState({ gameId: data.id })
+      })
+    }
+  }
+
+  updateProgress () {
+    if (this.state.gameId) {
+      window.fetch(`${API.root}/games/${this.state.gameId}`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${API.token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          progress: this.state.matched.length,
+          totalCards: this.state.cards.length
+        })
+      }).then(res => res.json()).then((data) => {
+        console.log(data)
+      })
+    }
   }
 
   shuffle = (array) => {
@@ -75,6 +122,7 @@ class Game extends React.Component {
               matched: this.state.matched.concat(...this.state.turned),
               turned: []
             }, () => {
+              this.updateProgress()
               if (this.state.matched.length === cards.length) {
                 setTimeout(() => {
                   this.setState({ win: true })
@@ -91,21 +139,51 @@ class Game extends React.Component {
     }
   }
 
+  get playerName () {
+    return this.state.playerName
+  }
+
+  set playerName (name) {
+    this.setState({ playerName: name }, () => this.createGame())
+    window.sessionStorage.setItem('player', name)
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.playerName = this.refs.playerName.value
+  }
+
   render () {
-    if (!this.state.win) {
-      const cards = this.state.cards.map((card, index) => {
-        let up = !this.state.turned.includes(index) ? this.state.matched.includes(index) : this.state.turned.includes(index)
-        return <Card flipCard={this.flipCard} value={card.value} up={up} index={index} key={index} />
-      })
-      return <div>
-        <h1>'pop(scyckle)'</h1>
-        <main>
-          {cards}
-        </main>
-      </div>
+    if (this.playerName) {
+      if (!this.state.win) {
+        const cards = this.state.cards.map((card, index) => {
+          let up = !this.state.turned.includes(index) ? this.state.matched.includes(index) : this.state.turned.includes(index)
+          return <div key={index}><Card flipCard={this.flipCard} value={card.value} up={up} index={index} /></div>
+        })
+        return <div>
+          <h2>Hello, {this.playerName}</h2>
+          <main className={`board count-${this.state.cards.length}`}>
+            {cards}
+          </main>
+        </div>
+      } else {
+        return <div>
+          <h1>YOU WIN, {this.playerName}!</h1>
+        </div>
+      }
     } else {
       return <div>
-        <h1> YOU WIN!!! </h1>
+        <main>
+          <form onSubmit={this.handleSubmit}>
+            <div className='group'>
+              <input ref='playerName' type='text' /><span className='highlight' /><span className='bar' />
+              <label>What's your name?</label>
+            </div>
+            <div className='group'>
+              <BlobButton children='Play!' onClick={this.handleSubmit} />
+            </div>
+          </form>
+        </main>
       </div>
     }
   }

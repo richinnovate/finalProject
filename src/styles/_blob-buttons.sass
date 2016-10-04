@@ -1,20 +1,13 @@
-$cyan: white
-$dark: rgba(0,0,0,0.25)
+$btnColor: #AB24DB
+$textColor: lighten(#AB24DB, 20%)
 $borderW: 6px
 
 .blob-btn
-  &, &:before, &:after,
-  *, *:before, *:after
+  &, &:before,
+  *, *:before
     box-sizing: border-box
     margin: 0
     padding: 0
-
-nav.bm-item-list
-  font-family: $primaryFont
-  display: flex
-  flex-direction: column
-  justify-content: flex-start
-  text-align: center
 
 .blob-btn
   $numOfBlobs: 4
@@ -24,7 +17,7 @@ nav.bm-item-list
   margin-bottom: 30px
   text-align: center
   text-transform: uppercase
-  color: $cyan
+  color: $btnColor
   font-size: 16px
   font-weight: bold
   background-color: transparent
@@ -41,26 +34,10 @@ nav.bm-item-list
     top: 0
     width: 100%
     height: 100%
-    border: $borderW solid $cyan
-
-  &:after
-    content: ""
-    z-index: -2
-    position: absolute
-    left: $borderW*1.5
-    top: $borderW*1.5
-    width: 100%
-    height: 100%
-    border: $borderW solid $dark
-    transition: all 0.3s 0.2s
+    border: $borderW solid $btnColor
 
   &:hover
-    color: $dark
-
-    &:after
-      transition: all 0.3s
-      left: 0
-      top: 0
+    color: $textColor
 
   &__inner
     z-index: -1
@@ -83,13 +60,13 @@ nav.bm-item-list
     top: $borderW
     width: 100% / $numOfBlobs
     height: 100%
-    background: $cyan
+    background: $btnColor
     border-radius: 100%
-    transform: translate3d(0,150%,0) scale(1.7)
+    transform: translate3d(0,-150%,0) scale(1.7)
     transition: transform 0.45s
 
     @supports(filter: url('#goo'))
-      transform: translate3d(0,150%,0) scale(1.4)
+      transform: translate3d(0,-150%,0) scale(1.4)
 
     @for $i from 1 through $numOfBlobs
       &:nth-child(#{$i})

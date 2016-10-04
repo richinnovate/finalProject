@@ -136,3 +136,11 @@ $card-border: ($card-width * 0.1);
 .sf-wrap:hover > .sf-mdl-right .content.back {
   border: ($card-width * 0.1) solid darken(#fff, 10%);
 }
+
+.sf-card span {
+  padding: 0.5em;
+
+  &.long {
+    font-size: 0.7em;
+  }
+}

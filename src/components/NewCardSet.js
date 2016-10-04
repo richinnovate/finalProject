@@ -1,5 +1,4 @@
 import React from 'react'
-import { Input, Button } from 'rebass'
 import { browserHistory } from 'react-router'
 
 class NewCardSet extends React.Component {
@@ -14,16 +13,26 @@ class NewCardSet extends React.Component {
   }
 
   submit = () => {
-    browserHistory.push('/note/' + this.state.cardSet)
+    if (this.state.cardSet.length > 0) {
+      browserHistory.push('/note/' + this.state.cardSet)
+    }
   }
 
   render () {
     return (
       <div className='NewCardSet'>
-        <div className='form'>
-          <Input placeholder='Title' label='Create a new set of cards' name='cardSet' onChange={this.setCardSet} />
-          <Button children='Submit' onClick={this.submit} />
-        </div>
+        <h2>New Game</h2>
+        <main>
+          <form onSubmit={this.submit}>
+            <div className='group'>
+              <input type='text' onChange={this.setCardSet} /><span className='highlight' /><span className='bar' />
+              <label>Game URL</label>
+            </div>
+            <button type='button' className='button buttonBlue' onClick={this.submit}>
+              Create
+            </button>
+          </form>
+        </main>
       </div>
     )
   }

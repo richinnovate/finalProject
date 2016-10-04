@@ -5,18 +5,16 @@ class About extends React.Component {
   render () {
     return (
       <div className='About'>
-        <header>
-          <h2>How It Works</h2>
-        </header>
+        <h2>How It Works</h2>
         <main>
           <div className='About'>
-            <p>Welcome to Pop('syckle'), a fun interactive way to teach through the memory game. Let's say that you want to teach or reinforce something to someone, simply create choose the option to create a new game. After setting up the team name and password, create a game by generating up to 25 question and answers. When the board is made, a memory game will be created with your questions and answers ready to play. </p>
-            <p>You're not only limited to one-liners, Feel free to upload whole paragraphs and images. Give the team name and password to whoever you want to play the game!</p>
+            <p>Remember enjoying a sweet frozen treat on a hot summer day then looking at the stick when you were finished and seeing some funny info and you look to see who's around you so you could share the laugh? Recall that feeling that you get when you learn something and get so excited that you want to tell someone else? Welcome to Pop('syckle'), a fun interactive way to teach using the memory game. Let's say that you want to teach or reinforce something to someone, simply choose the option to create a new game. After setting up the team name and password, create a game by generating several question and answers. When the board is made, a memory game will be created with your questions and answers on the bottom of the cards ready to play. </p>
+            <p>You're not only limited to one-liners, Feel free to upload a few sentences and images. Give the team name and password to whoever you want to play the game!</p>
           </div>
           <div className='CreateGame'>
             <h2><Link to='/create-team'>Create A Game</Link></h2>
             <p>Login to start a group and create a game.
-              Generate a team name and password to pass along
+              Generate a team name and password. Use the generated url to pass along
               to whoever you want to access the game you created.</p>
           </div>
           <div className='ManageAccount'>

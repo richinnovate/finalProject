@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import { Textarea, Button } from 'rebass'
 
 import API from '../api'
@@ -84,19 +84,33 @@ class Note extends React.Component {
     })
   }
 
+  get shareUrl () {
+    return window.location.href.replace('/note', '/game')
+  }
+
   render () {
     return (
       <div className='Note'>
-        <div className='cardSets'>
-          {this.state.cardPairs.map((pair, index) => {
-            return <CardPair value={pair} key={index} removeItem={this.removeItem} />
-          })}
-        </div>
-        <div className='form'>
-          <Textarea placeholder='Question' label='question' hideLabel name='question' onChange={this.getQuestion} value={this.state.question} />
-          <Textarea placeholder='Answer' label='answer' hideLabel name='answer' onChange={this.getAnswer} value={this.state.answer} />
-          <Button children='Submit' onClick={this.submit} />
-        </div>
+        <h2>Setup Your Game</h2>
+        <main>
+          <table className='cardSets'>
+            <tbody>
+              {this.state.cardPairs.map((pair, index) => {
+                return <CardPair value={pair} key={index} removeItem={this.removeItem} />
+              })}
+            </tbody>
+          </table>
+          <form>
+            <Textarea placeholder='Question' label='question' hideLabel name='question' onChange={this.getQuestion} value={this.state.question} />
+            <Textarea placeholder='Answer' label='answer' hideLabel name='answer' onChange={this.getAnswer} value={this.state.answer} />
+            <button type='button' className='button buttonBlue' onClick={this.submit}>
+              Submit
+            </button>
+          </form>
+          <div className='shareUrl'>
+            <Link to={`/game/${this.props.params.cardSet}`}>{this.shareUrl}</Link>
+          </div>
+        </main>
       </div>
     )
   }
@@ -118,11 +132,11 @@ class CardPair extends React.Component {
 
   render () {
     const pair = this.props.value
-    return <div className='cardPair'>
-      <div className='question'>{this.contentFor(pair.question)}</div>
-      <div className='answer'>{this.contentFor(pair.answer)}</div>
-      <div className='remove' onClick={this.removeItem} >&times;</div>
-    </div>
+    return <tr className='cardPair'>
+      <td className='question'>{this.contentFor(pair.question)}</td>
+      <td className='answer'>{this.contentFor(pair.answer)}</td>
+      <td className='remove' onClick={this.removeItem} ><a>&times;</a></td>
+    </tr>
   }
 }
 

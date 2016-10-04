@@ -1,335 +1,85 @@
 @import '~normalize.css/normalize.css'
 @import 'utility'
+@import 'layout'
+@import 'typography'
+@import 'forms'
 @import 'burger-menu'
 @import 'blob-buttons'
 @import 'card'
 
-html
-  height: 100vh
-  width: 100vw
-
-body,
-html
-  min-width: 100vw
-  min-height: 100vh
-  margin: 0
-  padding: 0
-
-canvas
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  z-index: -9000
-  opacity: 0.25
-
-body
-  background: #eef442
-  color: #5199ed
-  font-family: $primaryFont
-  text-shadow: 2px 2px grey
-
-header
-  padding: 2.5em 0 0
-  font-size: 3em
-  padding-left: 80px
-
-h1
-  font-family: $titleFont
-  text-align: center
-  margin: 0
-  color: white
-  text-shadow: 1px 1px 2px black, 0 0 25px dark, 0 0 5px grey
-
-.card
-  display: inline-block
-  border: solid 8px white
-    radius: 8px blue
-  height: 100px
-  width: 100px
-  text-align: center
-  line-height: 100px
-
-  &.up
-    background-color: white
-    color: blue
-
-  &.down
-    background-color: orange
-    color: transparent
-
-  *, *:before, *:after
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-
-
-form
-  width: 380px
-  margin: 4em auto
-  padding: 3em 2em 2em 2em
-  background: #fafafa
-  border: 1px solid #ebebeb
-  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px
-
-.group
-  position: relative
-  margin-bottom: 45px
-
-input
-  font-size: 18px
-  padding: 10px 10px 10px 5px
-  -webkit-appearance: none
-  display: block
-  background: #fafafa
-  color: #636363
-  width: 100%
-  border: none
-  border-radius: 0
-  border-bottom: 1px solid #757575
-
-  &:focus
-    outline: none
-
-/* Label
-
-label
-  color: white
-  font-size: 18px
-  font-weight: normal
-  // position: absolute
-  pointer-events: none
-  left: 5px
-  top: 10px
-  -webkit-transition: all 0.2s ease
-  transition: all 0.2s ease
-
-/* active
-
-input
-  &:focus ~ label, &.used ~ label
-    top: -20px
-    -webkit-transform: scale(0.75)
-    transform: scale(0.75)
-    left: -2px
-
-    /* font-size: 14px;
-    color: #4a89dc
-
-/* Underline
-
-.bar
-  position: relative
-  display: block
-  width: 100%
-
-  &:before, &:after
-    content: ''
-    height: 2px
-    width: 0
-    bottom: 1px
-    position: absolute
-    background: #4a89dc
-    -webkit-transition: all 0.2s ease
-    transition: all 0.2s ease
-
-  &:before
-    left: 50%
-
-  &:after
-    right: 50%
-
-/* active
-
-input:focus ~ .bar
-  &:before, &:after
-    width: 50%
-
-/* Highlight
-
-.highlight
-  position: absolute
-  height: 60%
-  width: 100px
-  top: 25%
-  left: 0
-  pointer-events: none
-  opacity: 0.5
-
-/* active
-
-input:focus ~ .highlight
-  -webkit-animation: inputHighlighter 0.3s ease
-  animation: inputHighlighter 0.3s ease
-
-/* Animations
-
-@-webkit-keyframes inputHighlighter
-  from
-    background: #4a89dc
-
-  to
-    width: 0
-    background: transparent
-
-@keyframes inputHighlighter
-  from
-    background: #4a89dc
-
-  to
-    width: 0
-    background: transparent
-
-/* Button
-
-.button
-  position: relative
-  display: inline-block
-  padding: 12px 24px
-  margin: .3em 0 1em 0
-  width: 100%
-  vertical-align: middle
-  color: #fff
-  font-size: 16px
-  line-height: 20px
-  -webkit-font-smoothing: antialiased
-  text-align: center
-  letter-spacing: 1px
-  background: transparent
-  border: 0
-  border-bottom: 2px solid #3160B6
-  cursor: pointer
-  -webkit-transition: all 0.15s ease
-  transition: all 0.15s ease
-
-  &:focus
-    outline: 0
-
-/* Button modifiers
-
-.buttonBlue
-  background: #4a89dc
-  text-shadow: 1px 1px 0 rgba(39, 110, 204, 0.5)
-
-  &:hover
-    background: #357bd8
-
-/* Ripples container
-
-.ripples
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  overflow: hidden
-  background: transparent
-
-/* Ripples circle
-
-.ripplesCircle
-  position: absolute
-  top: 50%
-  left: 50%
-  -webkit-transform: translate(-50%, -50%)
-  transform: translate(-50%, -50%)
-  opacity: 0
-  width: 0
-  height: 0
-  border-radius: 50%
-  background: rgba(255, 255, 255, 0.25)
-
-.ripples.is-active .ripplesCircle
-  -webkit-animation: ripples .4s ease-in
-  animation: ripples .4s ease-in
-
-/* Ripples animation
-
-@-webkit-keyframes ripples
-  0%
-    opacity: 0
-
-  25%
-    opacity: 1
-
-  100%
-    width: 200%
-    padding-bottom: 200%
-    opacity: 0
-
-@keyframes ripples
-  0%
-    opacity: 0
-
-  25%
-    opacity: 1
-
-  100%
-    width: 200%
-    padding-bottom: 200%
-    opacity: 0
-
-main
-  display: flex
-  flex-direction: row
-  justify-content: center
-  flex-wrap: wrap
-  font-family: $primaryFont
-  font-size: 25px
-  padding: 25px
+.Home
+  main
+    text-align: center
 
   img
     width: 33vw
+    max-width: 250px
     height: 33vw
+    max-height: 250px
     margin: 25px
 
-h2
-  display: flex
-  justify-content: center
-
-header
-  padding-top: 40px
-  padding-right: 100px
-
-.About
-  padding-left: 80px
-  padding-right: 60px
-
-.CreateGame
-  padding-right: 20px
-  padding-left: 80px
-  width: 25em
-
-.ManageAccount
-  padding-left: 80px
-  width: 25em
-
-.PlayGame
-  width: 25em
-  padding-left: 80px
-
 .Note
-  font-family: $primaryFont
-  width: 400px
-  margin: 100px auto 0
 
-.NewCardSet
-  min-height: 100vh
-  display: flex
-  justify-content: center
-  align-items: center
-
-.cardPair
-  margin: 10px
-  display: flex
-  justify-content: space-between
-  align-items: center
-
-  .remove
-    background-color: rgb(232, 79, 14)
+  .shareUrl
+    font-size: 0.8em
+    margin: 1em
+    padding: 1em
     text-align: center
-    border-radius: 50%
-    height: 1em
-    width: 1em
-    cursor: pointer
+    background: #fafafa
+    border: 1px solid #999
+
+    a
+      color: #666
+
+  .cardPair
+    margin: 10px
+
+    td
+      vertical-align: top
+
+    .question, .answer
+      overflow: scroll
+
+    .remove
+      a
+        display: block
+        color: white
+        background-color: rgb(232, 79, 14)
+        text-align: center
+        border-radius: 50%
+        height: 1em
+        width: 1em
+        cursor: pointer
+
+.Results
+
+  .results
+    padding: 3em 2em 2em 2em
+    background: #fafafa
+
+    table
+      width: 100%
+
+main.board
+  min-width: 100%
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-start
+
+  > div
+    width: calc(25vw)
+    height: calc(25vw)
+    display: flex
+    justify-content: center
+    align-content: center
+
+@media (max-width: 820px)
+  main.board > div
+    width: calc(33.33vw)
+    height: calc(33.33vw)
+
+@media (max-width: 620px)
+  main.board > div
+    width: calc(50vw)
+    height: calc(50vw)
