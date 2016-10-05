@@ -26,7 +26,7 @@ class NewCardSet extends React.Component {
           <form onSubmit={this.submit}>
             <div className='group'>
               <input type='text' onChange={this.setCardSet} /><span className='highlight' /><span className='bar' />
-              <label>Game URL</label>
+              <label>Name of Game</label>
             </div>
             <button type='button' className='button buttonBlue' onClick={this.submit}>
               Create

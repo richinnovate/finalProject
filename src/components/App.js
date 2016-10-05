@@ -30,7 +30,7 @@ class App extends React.Component {
     if (this.state.signedIn) {
       buttons.push(
         <BlobButton onClick={this.closeMenu} linkTo='/view-results' key={0}>View Results</BlobButton>,
-        <BlobButton onClick={this.closeMenu} linkTo='/note' key={1}>Create Game</BlobButton>
+        <BlobButton onClick={this.closeMenu} linkTo='/create-team' key={1}>Create Game</BlobButton>
       )
     } else {
       buttons.push(
@@ -56,7 +56,7 @@ class App extends React.Component {
       </div>
       <Wallpaper />
       <footer>
-        <p className='copyright'>&copy; 2016 lloyd rich</p>
+        <Link to='https://github.com/richinnovate'><p className='copyright'>&copy; 2016 lloyd rich</p></Link>
         <img src={popsyckleLogo} alt='Logo' />
       </footer>
     </div>

@@ -8,8 +8,9 @@ class About extends React.Component {
         <h2>How It Works</h2>
         <main>
           <div className='About'>
-            <p>Remember enjoying a sweet frozen treat on a hot summer day then looking at the stick when you were finished and seeing some funny info and you look to see who's around you so you could share the laugh? Recall that feeling that you get when you learn something and get so excited that you want to tell someone else? Welcome to Pop('syckle'), a fun interactive way to teach using the memory game. Let's say that you want to teach or reinforce something to someone, simply choose the option to create a new game. After setting up the team name and password, create a game by generating several question and answers. When the board is made, a memory game will be created with your questions and answers on the bottom of the cards ready to play. </p>
+            <p>Oh, the joy of enjoying a sweet, cold , fruity treat. Euphoria washes over you as you enjoy the last few chunks of frozen goodness left on the stick. As you finish, your sadness turns to joy after looking at the stick and realizing it's a sentence  there that just made your day. Your body and your brain was just fed! All of a sudden out of joy, you get the feeling to share what you've just learned to the world via a stick!</p><p> Welcome to Pop('syckle'), a fun interactive way to teach using the memory game. Let's say that you want to teach or reinforce something to someone, simply choose the option to create a new game. After setting up the team name and password, create a game by generating several question and answers. When the board is made, a memory game will be created with your questions and answers on the bottom of the cards ready to play. </p>
             <p>You're not only limited to one-liners, Feel free to upload a few sentences and images. Give the team name and password to whoever you want to play the game!</p>
+            <p>So go ahead! Pass your stick of knowledge to the world! Just, please wash your hands first!</p>
           </div>
           <div className='CreateGame'>
             <h2><Link to='/create-team'>Create A Game</Link></h2>

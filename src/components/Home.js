@@ -12,7 +12,7 @@ class Home extends Component {
         <main>
           <img src={popsyckleLogo} alt='Logo' />
           <div className='descrption'>
-            <h2>A fun way to pass along that sweet knowledge!</h2>
+            <h2>A fun way to pass along some sweet knowledge!</h2>
           </div>
           {/* <button>contact</button>
           <button>signup</button>

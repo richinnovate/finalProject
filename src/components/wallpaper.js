@@ -60,7 +60,7 @@ function Dot (hx, hy) {
 Dot.prototype.draw = function (context) {
   let dx = this.halfX + this.rad_x * Math.cos(this.alpha / 180 * Math.PI)
   let dy = this.halfY + this.rad_y * Math.sin(this.alpha / 180 * Math.PI)
-  context.fillStyle = `rgb(${this.color},${this.color},${this.color})`
+  context.fillStyle = '#ab24db'
   context.fillRect(dx, dy, this.size, this.size)
 }
 
