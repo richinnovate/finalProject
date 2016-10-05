@@ -56,11 +56,10 @@ class App extends React.Component {
       </div>
       <Wallpaper />
       <footer>
-        <Link to='https://github.com/richinnovate'><p className='copyright'>&copy; 2016 lloyd rich</p></Link>
+        <p className='copyright'><a href='https://github.com/richinnovate'>&copy; 2016 lloyd rich</a></p>
         <img src={popsyckleLogo} alt='Logo' />
       </footer>
     </div>
-
   }
 }
 export default App

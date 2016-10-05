@@ -68,11 +68,23 @@ main.board
   justify-content: flex-start
 
   > div
-    width: calc(25vw)
-    height: calc(25vw)
+    width: 25vw
+    height: 25vw
     display: flex
     justify-content: center
     align-content: center
+
+.victory
+  height: calc(100vh - 256px)
+  display: flex
+  justify-content: center
+  align-items: center
+
+  h1
+    text-shadow: -2px -2px #fefefe
+    text-align: center
+    font-size: 3em
+    color: #AB24DB
 
 @media (max-width: 820px)
   main.board > div

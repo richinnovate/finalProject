@@ -19,7 +19,7 @@ class Game extends React.Component {
       cards: [],
       matched: [],
       turned: [],
-      win: false,
+      win: true,
       playerName: null
     }
   }
@@ -167,7 +167,7 @@ class Game extends React.Component {
           </main>
         </div>
       } else {
-        return <div>
+        return <div className='victory'>
           <h1>YOU WIN, {this.playerName}!</h1>
         </div>
       }
@@ -179,9 +179,7 @@ class Game extends React.Component {
               <input ref='playerName' type='text' /><span className='highlight' /><span className='bar' />
               <label>What's your name?</label>
             </div>
-            <div className='group'>
-              <BlobButton children='Play!' onClick={this.handleSubmit} />
-            </div>
+            <BlobButton children='Play!' onClick={this.handleSubmit} />
           </form>
         </main>
       </div>
