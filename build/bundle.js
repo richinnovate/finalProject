@@ -17815,7 +17815,7 @@
 	            _react2.default.createElement(
 	              'p',
 	              null,
-	              'Oh, the joy of enjoying a sweet, cold , fruity treat. Euphoria washes over you as you enjoy the last few chunks of frozen goodness left on the stick. As you finish, your sadness turns to joy after looking at the stick and realizing it\'s a sentence  there that just made your day. Your body and your brain was just fed! All of a sudden out of joy, you get the feeling to share what you\'ve just learned to the world via a stick!'
+	              'Oh, the joy of enjoying a sweet, cold , fruity treat. Euphoria washes over your body as you enjoy the last few chunks of frozen goodness left, but wait there\'s a message hidden on the stick. All of a sudden out of joy, you get the feeling to share what you\'ve just learned to the world via a stick!'
 	            ),
 	            _react2.default.createElement(
 	              'p',
