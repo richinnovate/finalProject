@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 class CreateTeam extends Component {
 
@@ -28,10 +28,10 @@ class CreateTeam extends Component {
             <input type='text' /><span className='highlight' /><span className='bar' />
             <label>email address</label>
           </div>
-          <Link to='/note'><button type='button' className='button buttonBlue'>
+          <button type='button' className='button buttonBlue' onClick={() => { browserHistory.push('/note') }}>
             Create Team Account
             <div className='ripples buttonRipples'><span className='ripplesCircle' /></div>
-          </button></Link>
+          </button>
         </form>
       </main>
     </div>

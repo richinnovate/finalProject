@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 class User extends Component {
 
@@ -16,10 +16,10 @@ class User extends Component {
             <input type='password' /><span className='highlight' /><span className='bar' />
             <label>Password</label>
           </div>
-          <Link to='/view-results'><button type='button' className='button buttonBlue'>
+          <button type='button' className='button buttonBlue' onClick={() => { browserHistory.push('/view-results') }}>
             Login
             <div className='ripples buttonRipples'><span className='ripplesCircle' /></div>
-          </button></Link>
+          </button>
         </form>
       </main>
     </div>

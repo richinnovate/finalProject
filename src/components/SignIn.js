@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 import { BlobButton, Wallpaper } from '.'
 
 class SignIn extends Component {
@@ -17,10 +17,10 @@ class SignIn extends Component {
             <input type='password' /><span className='highlight' /><span className='bar' />
             <label>Team Password</label>
           </div>
-          <Link to='/note'><button type='button' className='button buttonBlue'>
+          <button type='button' className='button buttonBlue' onClick={() => { browserHistory.push('/note') }}>
             Login
             <div className='ripples buttonRipples'><span className='ripplesCircle' /></div>
-          </button></Link>
+          </button>
         </form>
       </main>
     </div>

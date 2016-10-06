@@ -19,7 +19,7 @@ class Game extends React.Component {
       cards: [],
       matched: [],
       turned: [],
-      win: true,
+      win: false,
       playerName: null
     }
   }
